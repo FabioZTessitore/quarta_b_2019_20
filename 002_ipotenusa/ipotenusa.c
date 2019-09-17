@@ -4,7 +4,16 @@
 
 /* Utilizzo della libreria matematica */
 
+/* Compilazione, link ed esecuzione:
+
+$ gcc -c ipotenusa.c -o ipotenusa.o
+$ gcc ipotenusa.o -o ipotenusa -lm
+$ ./ipotenusa
+
+*/
+
 #include <stdio.h>
+#include <math.h>
 
 double ipotenusa(double cateto1, double cateto2);
 
@@ -21,5 +30,5 @@ int main()
 
 double ipotenusa(double cateto1, double cateto2)
 {
-    return ...;
+    return sqrt(cateto1*cateto1 + cateto2*cateto2);
 }
