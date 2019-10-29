@@ -4,6 +4,13 @@
 
 /* Strutturare un programma in moduli */
 
+/* Compilazione, link ed esecuzione:
+
+$ make
+$ ./main
+
+*/
+
 #include <stdio.h>
 #include "dado.h"
 
