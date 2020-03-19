@@ -4,62 +4,57 @@
 #include <stdlib.h>
 #include "nodo.h"
 
-void nodo_stampa(NodoPtr head)
+void nodo_stampa(NodoPtr current)
 {
-    NodoPtr temp;
-
-    temp = head;
-    while (temp != NULL) {
-        printf("%d ---> ", temp->val);
-        temp = temp->next;
+    while (current != NULL) {
+        printf("%d ---> ", current->val);
+        current = current->next;
     }
     printf("NULL\n");
 }
 
 void nodo_inserisciCoda(NodoPtr *head, int val)
 {
-    NodoPtr t = malloc(sizeof(Nodo));
-    t->val = val;
-    t->next = NULL;
-
     if (*head == NULL) {
-        *head = t;
+        nodo_inserisciTesta(head, val);
         return;
     }
 
+    NodoPtr nuovoNodo = malloc(sizeof(Nodo));
+    nuovoNodo->val = val;
+    nuovoNodo->next = NULL;
+
     NodoPtr temp = *head;
 
-    while (temp != NULL) {
-        if (temp->next == NULL) {
-            temp->next = t;
-            return;
-        }
+    /* cerca la fine della lista */
+    while (temp->next != NULL) {
         temp = temp->next;
     }
+    temp->next = nuovoNodo;
 }
 
 void nodo_inserisciTesta(NodoPtr *head, int val) {
-    NodoPtr t = malloc(sizeof(Nodo));
-    t->val = val;
-    t->next = *head;
+    NodoPtr nuovoNodo = malloc(sizeof(Nodo));
+    nuovoNodo->val = val;
+    nuovoNodo->next = *head;
 
-    *head = t;
+    *head = nuovoNodo;
 }
 
-void nodo_inserisciDopo(NodoPtr *head, int val, int key)
+void nodo_inserisciDopo(NodoPtr head, int val, int key)
 {
-    while (*head != NULL && (*head)->val != key) {
-        *head = (*head)->next;
+    while (head != NULL && head->val != key) {
+        head = head->next;
     }
 
     /* key non trovato */
-    if (*head == NULL) return;
+    if (head == NULL) return;
 
-    NodoPtr t = malloc(sizeof(Nodo));
-    t->val = val;
-    t->next = (*head)->next;
+    NodoPtr nuovoNodo = malloc(sizeof(Nodo));
+    nuovoNodo->val = val;
+    nuovoNodo->next = head->next;
 
-    (*head)->next = t;
+    head->next = nuovoNodo;
 }
 
 void nodo_clear(NodoPtr *head)
@@ -69,6 +64,8 @@ void nodo_clear(NodoPtr *head)
     while (*head != NULL) {
         temp = *head;    
         *head = (*head)->next;
+        
+        printf("Cleaning node with value %d\n", temp->val);
         free(temp);
     }
 }

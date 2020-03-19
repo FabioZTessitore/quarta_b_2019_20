@@ -2,7 +2,7 @@
 
 ## Familiarizzazione con i nodi di una struttura dati dinamica
 
-### Disciplina: *TPS*
+### Disciplina: *Informatica*
 
 ### Periodo: **09-15 Marzo 2020**
 

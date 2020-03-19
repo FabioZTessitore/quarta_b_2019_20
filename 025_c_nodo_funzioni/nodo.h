@@ -13,7 +13,7 @@ typedef struct nodo *NodoPtr;
 void nodo_stampa(NodoPtr head);
 void nodo_inserisciCoda(NodoPtr *head, int val);
 void nodo_inserisciTesta(NodoPtr *head, int val);
-void nodo_inserisciDopo(NodoPtr *head, int val, int key);
+void nodo_inserisciDopo(NodoPtr head, int val, int key);
 void nodo_clear(NodoPtr *head);
 
 #endif
