@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "nodo.h"
 
 /* Gestione di Nodi per la creazione di una Lista concatenata */
