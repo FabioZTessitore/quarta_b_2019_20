@@ -10,12 +10,12 @@ Si scrivano delle funzioni per la gestione dei nodi di una struttura dati dinami
 in testa alla lista, in coda alla lista, dopo un valore prescelto.
 
 ```c
-void nodo_inserisciCoda(NodoPtr head, int val);
+void nodo_inserisciCoda(NodoPtr *head, int val);
 void nodo_inserisciTesta(NodoPtr *head, int val);
 void nodo_inserisciDopo(NodoPtr head, int val, int key);
 ```
 
-Si noti la presenza del tipo `NodoPtr` definito come `struct nodo *` e che nel caso dell'inserimento il testa, `head` viene passato per riferimento.
+Si noti la presenza del tipo `NodoPtr` definito come `struct nodo *` e che nel caso dell'inserimento in coda e in testa, `head` viene passato per riferimento.
 
 #### L'allocazione dinamica
 
